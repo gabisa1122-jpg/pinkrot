@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>pinkrot.net</title>
+
+<style>
+body {
+    margin: 0;
+    background: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+#bgVideo {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.75;
+    filter: contrast(1.2) saturate(1.3);
+}
+
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,182,193,0.08), black 80%);
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.glitch {
+    font-size: 28px;
+    letter-spacing: 4px;
+    animation: flicker 2.5s infinite;
+}
+
+@keyframes flicker {
+    0% {opacity: 1;}
+    50% {opacity: 0.4;}
+    100% {opacity: 1;}
+}
+
+input {
+    margin-top: 10px;
+    padding: 10px;
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background: white;
+    color: black;
+}
+
+p {
+    opacity: 0.7;
+    font-size: 12px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Background video (replace file name if needed) -->
+<video autoplay muted loop id="bgVideo">
+    <source src="pinkhair.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="center">
+    <div class="glitch">pinkrot.net</div>
+    <p>invitation required</p>
+
+    <input id="code" placeholder="invite code">
+    <br>
+    <button onclick="enterSite()">enter</button>
+
+    <p id="msg"></p>
+</div>
+
+<script>
+function enterSite() {
+    const code = document.getElementById("code").value;
+
+    if (code === "pinkrot") {
+        window.location.href = "videos.html";
+    } else {
+        const msg = document.getElementById("msg");
+        msg.innerText = "";
+        setTimeout(() => {
+            msg.innerText = "";
+        }, 500);
+    }
+}
+</script>
+
+</body>
+</html>
