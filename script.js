@@ -63,3 +63,16 @@ setInterval(() => {
         spawnGhostText();
     }
 }, 3000);
+document.getElementById("code").addEventListener("input", (e) => {
+    const v = e.target.value.toLowerCase();
+
+    if (v.includes("kuya") || v.includes("kūya")) {
+        document.body.style.filter = "contrast(1.6) hue-rotate(310deg)";
+        setTimeout(() => document.body.style.filter = "", 800);
+    }
+
+    if (v.includes("disappear")) {
+        document.body.style.transform = "translateX(2px)";
+        setTimeout(() => document.body.style.transform = "", 300);
+    }
+});
