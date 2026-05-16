@@ -7,9 +7,11 @@
 <style>
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    height: 100vh;
     overflow: hidden;
+    font-family: Arial, sans-serif;
     color: white;
+    text-align: center;
     background: radial-gradient(circle at top, #ffb6d5, #2a001f, #000);
 }
 
@@ -19,8 +21,9 @@ body {
     width: 200%;
     height: 200%;
     background: radial-gradient(circle, rgba(255,105,180,0.25), transparent 60%);
-    animation: drift 8s infinite alternate ease-in-out;
-    filter: blur(40px);
+    animation: drift 10s infinite alternate ease-in-out;
+    filter: blur(50px);
+    z-index: -1;
 }
 
 @keyframes drift {
@@ -28,37 +31,39 @@ body {
     to { transform: translate(10%, 10%); }
 }
 
+/* center box */
 .center {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    text-align: center;
-    z-index: 2;
 }
 
+/* title */
 .glitch {
-    font-size: 30px;
-    letter-spacing: 4px;
-    animation: flicker 2s infinite;
+    font-size: 32px;
+    letter-spacing: 5px;
+    animation: flicker 2.5s infinite;
     text-shadow: 0 0 10px #ff69b4;
 }
 
 @keyframes flicker {
-    0% {opacity: 1;}
-    50% {opacity: 0.4;}
-    100% {opacity: 1;}
+    0% { opacity: 1; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1; }
 }
 
+/* input */
 input {
     margin-top: 10px;
     padding: 10px;
-    background: rgba(255,255,255,0.1);
+    background: transparent;
     border: 1px solid #ff69b4;
     color: white;
     outline: none;
 }
 
+/* button */
 button {
     margin-top: 10px;
     padding: 10px 20px;
@@ -80,6 +85,7 @@ button:hover {
     opacity: 0.7;
 }
 
+/* cursor glow */
 .glow {
     position: fixed;
     width: 200px;
@@ -102,7 +108,7 @@ button:hover {
     <div class="glitch">pinkrot.net</div>
     <p>invitation required</p>
 
-    <input id="code" placeholder="invite code" oninput="hint()">
+    <input id="code" placeholder="invite code">
     <br>
     <button onclick="enterSite()">enter</button>
 
@@ -110,26 +116,14 @@ button:hover {
 </div>
 
 <script>
-// glowing mouse effect
+// cursor glow
 document.addEventListener("mousemove", (e) => {
     const glow = document.getElementById("glow");
     glow.style.left = e.clientX + "px";
     glow.style.top = e.clientY + "px";
 });
 
-// fake “typing reaction”
-function hint() {
-    const code = document.getElementById("code").value;
-    const msg = document.getElementById("msg");
-
-    if (code.length > 0) {
-        msg.innerText = "something is listening...";
-    } else {
-        msg.innerText = "";
-    }
-}
-
-// invite system
+// login system
 function enterSite() {
     const code = document.getElementById("code").value;
     const msg = document.getElementById("msg");
@@ -144,87 +138,6 @@ function enterSite() {
         document.body.style.filter = "hue-rotate(20deg) contrast(1.2)";
         setTimeout(() => {
             document.body.style.filter = "none";
-        }, 500);
-    }
-}
-</script>
-
-</body>
-</html>    text-align: center;
-}
-
-.glitch {
-    font-size: 28px;
-    letter-spacing: 4px;
-    animation: flicker 2.5s infinite;
-}
-
-@keyframes flicker {
-    0% {opacity: 1;}
-    50% {opacity: 0.4;}
-    100% {opacity: 1;}
-}
-
-input {
-    margin-top: 10px;
-    padding: 10px;
-    background: transparent;
-    border: 1px solid white;
-    color: white;
-}
-
-button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    background: transparent;
-    border: 1px solid white;
-    color: white;
-    cursor: pointer;
-}
-
-button:hover {
-    background: white;
-    color: black;
-}
-
-p {
-    opacity: 0.7;
-    font-size: 12px;
-}
-</style>
-</head>
-
-<body>
-
-<!-- Background video (replace file name if needed) -->
-<video autoplay muted loop id="bgVideo">
-    <source src="pinkhair.mp4" type="video/mp4">
-</video>
-
-<div class="overlay"></div>
-
-<div class="center">
-    <div class="glitch">pinkrot.net</div>
-    <p>invitation required</p>
-
-    <input id="code" placeholder="invite code">
-    <br>
-    <button onclick="enterSite()">enter</button>
-
-    <p id="msg"></p>
-</div>
-
-<script>
-function enterSite() {
-    const code = document.getElementById("code").value;
-
-    if (code === "pinkrot") {
-        window.location.href = "videos.html";
-    } else {
-        const msg = document.getElementById("msg");
-        msg.innerText = "";
-        setTimeout(() => {
-            msg.innerText = "";
         }, 500);
     }
 }
