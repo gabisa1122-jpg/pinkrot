@@ -29,3 +29,37 @@ function updateRot() {
 }
 
 updateRot();
+const kuyaLines = [
+    "kūya was here.",
+    "don’t follow him again.",
+    "you walked too far that night.",
+    "he didn’t disappear alone.",
+    "something was already there.",
+    "you remember wrong."
+];
+
+function spawnGhostText() {
+    const text = document.createElement("div");
+    text.innerText = kuyaLines[Math.floor(Math.random() * kuyaLines.length)];
+
+    text.style.position = "fixed";
+    text.style.left = Math.random() * window.innerWidth + "px";
+    text.style.top = Math.random() * window.innerHeight + "px";
+    text.style.color = "rgba(255, 182, 193, 0.4)";
+    text.style.fontSize = "12px";
+    text.style.pointerEvents = "none";
+    text.style.zIndex = "9999";
+    text.style.filter = "blur(0.5px)";
+
+    document.body.appendChild(text);
+
+    setTimeout(() => {
+        text.remove();
+    }, 2500);
+}
+
+setInterval(() => {
+    if (Math.random() > 0.92) {
+        spawnGhostText();
+    }
+}, 3000);
