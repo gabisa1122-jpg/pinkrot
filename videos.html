@@ -1,20 +1,149 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<link rel="stylesheet" href="style.css">
-<title>videos - pinkrot</title>
+<meta charset="UTF-8">
+<title>pinkrot.net // videos</title>
+
+<style>
+body {
+    margin: 0;
+    background: radial-gradient(circle at top, #ffb6d5, #12000d, #000);
+    font-family: Arial, sans-serif;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* soft drifting rot */
+.bg {
+    position: fixed;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,105,180,0.2), transparent 60%);
+    animation: drift 10s infinite alternate ease-in-out;
+    filter: blur(50px);
+    z-index: -1;
+}
+
+@keyframes drift {
+    from { transform: translate(-10%, -10%); }
+    to { transform: translate(10%, 10%); }
+}
+
+header {
+    text-align: center;
+    padding: 30px;
+    letter-spacing: 4px;
+    font-size: 20px;
+    text-shadow: 0 0 10px #ff69b4;
+}
+
+.container {
+    max-width: 700px;
+    margin: auto;
+    padding: 20px;
+}
+
+.video {
+    border: 1px solid rgba(255,105,180,0.4);
+    margin: 20px 0;
+    padding: 15px;
+    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(2px);
+    transition: 0.3s;
+}
+
+.video:hover {
+    transform: scale(1.02);
+    border-color: rgba(255,105,180,0.8);
+}
+
+.title {
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #ffb6d5;
+}
+
+.desc {
+    font-size: 12px;
+    opacity: 0.7;
+    margin-top: 5px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    opacity: 0.6;
+}
+
+a:hover {
+    opacity: 1;
+}
+
+.glitch {
+    animation: flicker 3s infinite;
+}
+
+@keyframes flicker {
+    0% {opacity: 1;}
+    50% {opacity: 0.4;}
+    100% {opacity: 1;}
+}
+</style>
 </head>
+
 <body>
 
-<div class="page">
-<h1>VIDEOS</h1>
+<div class="bg"></div>
 
-<a href="index.html">← back</a>
+<header class="glitch">
+VIDEOS ARCHIVE // PINKROT
+<br>
+<a href="index.html">← return</a>
+</header>
 
-<div class="card">Week 12 – The part under my hair wants to say hello</div>
-<div class="card">rotting the sakura I wore for you last night</div>
-<div class="card">please don’t look away… it’s still me</div>
-<div class="card">pinkrot ASMR — letting it chew through my memories</div>
+<div class="container">
+
+<div class="video">
+    <div class="title">Week 12 – The part under my hair wants to say hello</div>
+    <div class="desc">uploaded: unknown time stamp // file integrity unstable</div>
+</div>
+
+<div class="video">
+    <div class="title">Rotting the sakura I wore for you last night</div>
+    <div class="desc">no face visible // only hands + fabric movement</div>
+</div>
+
+<div class="video">
+    <div class="title">Please don’t look away… it’s still me</div>
+    <div class="desc">audio corrupted // visual decay increasing over runtime</div>
+</div>
+
+<div class="video">
+    <div class="title">PinkRot ASMR – Letting it chew through my memories</div>
+    <div class="desc">whispers unintelligible // repeated phrase: “kuya?”</div>
+</div>
+
+<div class="video">
+    <div class="video">
+    <div class="title">fog walk // empty street recordings (02:13 AM)</div>
+    <div class="desc">subject seen walking ahead of camera // identity unclear</div>
+</div>
+
+<div class="video">
+    <div class="title">you were not supposed to find this page</div>
+    <div class="desc">file appears older than the site itself</div>
+</div>
+
+<div class="video">
+    <div class="title">Kūya Kisaragi — last known frame (unverified)</div>
+    <div class="desc">image data removed // only motion blur remains</div>
+</div>
+
+<div class="video">
+    <div class="title">rot log #04 — something followed us back</div>
+    <div class="desc">recording ends before timestamp completes</div>
+</div>
 
 </div>
 
