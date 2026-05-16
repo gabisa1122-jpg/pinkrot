@@ -3,22 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <title>pinkrot.net // videos</title>
+
+<style>
 body {
     margin: 0;
     background: radial-gradient(circle at top, #ffb6d5, #12000d, #000);
     font-family: Arial, sans-serif;
     color: white;
     overflow-x: hidden;
+    text-align: center;
 }
 
-/* soft drifting rot */
+/* pink fog background */
 .bg {
     position: fixed;
     width: 200%;
     height: 200%;
     background: radial-gradient(circle, rgba(255,105,180,0.2), transparent 60%);
-    animation: drift 10s infinite alternate ease-in-out;
-    filter: blur(50px);
+    animation: drift 12s infinite alternate ease-in-out;
+    filter: blur(60px);
     z-index: -1;
 }
 
@@ -27,14 +30,38 @@ body {
     to { transform: translate(10%, 10%); }
 }
 
-header {
-    text-align: center;
-    padding: 30px;
+/* header */
+.glitch {
+    font-size: 28px;
     letter-spacing: 4px;
-    font-size: 20px;
+    animation: flicker 2.5s infinite;
     text-shadow: 0 0 10px #ff69b4;
+    margin-top: 20px;
 }
 
+@keyframes flicker {
+    0% { opacity: 1; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1; }
+}
+
+/* navigation */
+nav {
+    margin: 15px 0 30px 0;
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    opacity: 0.6;
+}
+
+/* video blocks */
 .container {
     max-width: 700px;
     margin: auto;
@@ -57,35 +84,14 @@ header {
 
 .title {
     font-size: 14px;
-    letter-spacing: 1px;
     color: #ffb6d5;
+    letter-spacing: 1px;
 }
 
 .desc {
     font-size: 12px;
     opacity: 0.7;
     margin-top: 5px;
-}
-
-a {
-    color: white;
-    text-decoration: none;
-    font-size: 12px;
-    opacity: 0.6;
-}
-
-a:hover {
-    opacity: 1;
-}
-
-.glitch {
-    animation: flicker 3s infinite;
-}
-
-@keyframes flicker {
-    0% {opacity: 1;}
-    50% {opacity: 0.4;}
-    100% {opacity: 1;}
 }
 </style>
 </head>
@@ -94,53 +100,55 @@ a:hover {
 
 <div class="bg"></div>
 
-<header class="glitch">
-VIDEOS ARCHIVE // PINKROT
-<br>
-<a href="index.html">← return</a>
-</header>
+<div class="glitch">VIDEOS ARCHIVE // PINKROT</div>
+
+<nav>
+    <a href="index.html">home</a> |
+    <a href="videos.html">videos</a> |
+    <a href="rotlog.html">rot log</a>
+</nav>
 
 <div class="container">
 
 <div class="video">
     <div class="title">Week 12 – The part under my hair wants to say hello</div>
-    <div class="desc">uploaded: unknown time stamp // file integrity unstable</div>
+    <div class="desc">no face visible // only hands recorded</div>
 </div>
 
 <div class="video">
     <div class="title">Rotting the sakura I wore for you last night</div>
-    <div class="desc">no face visible // only hands + fabric movement</div>
+    <div class="desc">file integrity unstable // timestamp missing</div>
 </div>
 
 <div class="video">
     <div class="title">Please don’t look away… it’s still me</div>
-    <div class="desc">audio corrupted // visual decay increasing over runtime</div>
+    <div class="desc">audio corrupted // visual decay increasing</div>
 </div>
 
 <div class="video">
     <div class="title">PinkRot ASMR – Letting it chew through my memories</div>
-    <div class="desc">whispers unintelligible // repeated phrase: “kuya?”</div>
+    <div class="desc">whisper fragments detected // “kuya?” unclear</div>
 </div>
 
 <div class="video">
     <div class="video">
     <div class="title">fog walk // empty street recordings (02:13 AM)</div>
-    <div class="desc">subject seen walking ahead of camera // identity unclear</div>
+    <div class="desc">subject walking ahead of camera // identity unknown</div>
 </div>
 
 <div class="video">
     <div class="title">you were not supposed to find this page</div>
-    <div class="desc">file appears older than the site itself</div>
+    <div class="desc">file older than directory itself</div>
 </div>
 
 <div class="video">
     <div class="title">Kūya Kisaragi — last known frame (unverified)</div>
-    <div class="desc">image data removed // only motion blur remains</div>
+    <div class="desc">image removed // motion blur remains</div>
 </div>
 
 <div class="video">
-    <div class="title">rot log #04 — something followed us back</div>
-    <div class="desc">recording ends before timestamp completes</div>
+    <div class="title">rot log fragment #04 — something followed us back</div>
+    <div class="desc">recording ends mid-sentence</div>
 </div>
 
 </div>
