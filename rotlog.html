@@ -3,18 +3,108 @@
 <head>
 <link rel="stylesheet" href="style.css">
 <title>rot log</title>
+
+<style>
+.log {
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 20px 0;
+    opacity: 0.8;
+}
+
+.log:hover {
+    opacity: 1;
+    transform: scale(1.02);
+    color: #ff9ecb;
+}
+
+.hidden {
+    display: none;
+    margin-top: 8px;
+    font-size: 12px;
+    opacity: 0.7;
+    color: #ffd6e8;
+}
+
+.glitch {
+    animation: flicker 2s infinite;
+}
+
+@keyframes flicker {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+</style>
 </head>
+
 <body>
 
 <div class="page">
-<h1>ROT LOG</h1>
-<a href="index.html">← back</a>
 
+<h1 class="glitch">ROT LOG</h1>
+
+<div style="margin-bottom:20px;">
+<a href="index.html">home</a> |
+<a href="videos.html">videos</a> |
+<a href="rotlog.html">rot log</a>
+</div>
+
+<div class="log" onclick="toggleLog('log1')">
 <p>“my hair remembers things i don’t”</p>
+<div id="log1" class="hidden">
+the sink was pink again this morning. i don’t remember washing anything.
+</div>
+</div>
+
+<div class="log" onclick="toggleLog('log2')">
 <p>“something keeps updating my reflections”</p>
+<div id="log2" class="hidden">
+mirrors load slower at night. sometimes i move after they do.
+</div>
+</div>
+
+<div class="log" onclick="toggleLog('log3')">
 <p>“pink is what happens when memory decays slowly”</p>
+<div id="log3" class="hidden">
+i found screenshots in my gallery from places i’ve never been.
+</div>
+</div>
+
+<div class="log" onclick="toggleLog('log4')">
+<p>“someone commented before the post existed”</p>
+<div id="log4" class="hidden">
+timestamp mismatch detected // user deleted before account creation
+</div>
+</div>
+
+<div class="log" onclick="toggleLog('log5')">
+<p>“kuya viewed the page after he disappeared”</p>
+<div id="log5" class="hidden">
+last active: 03:14 AM // location unavailable
+</div>
+</div>
+
+<div class="log" onclick="toggleLog('log6')">
+<p>“i think the site is changing while i sleep”</p>
+<div id="log6" class="hidden">
+new files appear in folders i never made.
+</div>
+</div>
 
 </div>
+
+<script>
+function toggleLog(id) {
+    var log = document.getElementById(id);
+
+    if (log.style.display === "block") {
+        log.style.display = "none";
+    } else {
+        log.style.display = "block";
+    }
+}
+</script>
 
 </body>
 </html>
