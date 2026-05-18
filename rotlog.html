@@ -1,21 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
 <link rel="stylesheet" href="style.css">
 <title>rot log</title>
 
 <style>
+body {
+    overflow-x: hidden;
+}
+
+.page {
+    max-width: 700px;
+    margin: auto;
+    padding: 30px;
+}
+
 .log {
     cursor: pointer;
     transition: 0.3s;
     margin: 20px 0;
     opacity: 0.8;
+    padding: 12px;
+    border: 1px solid rgba(255,182,193,0.2);
+    border-radius: 10px;
+    background: rgba(255,255,255,0.02);
 }
 
 .log:hover {
     opacity: 1;
     transform: scale(1.02);
     color: #ff9ecb;
+    border-color: rgba(255,182,193,0.5);
 }
 
 .hidden {
@@ -28,12 +44,34 @@
 
 .glitch {
     animation: flicker 2s infinite;
+    letter-spacing: 4px;
 }
 
 @keyframes flicker {
     0% { opacity: 1; }
     50% { opacity: 0.5; }
     100% { opacity: 1; }
+}
+
+.secret {
+    margin-top: 40px;
+    opacity: 0.2;
+    cursor: pointer;
+    font-size: 11px;
+    transition: 0.3s;
+}
+
+.secret:hover {
+    opacity: 0.6;
+}
+
+a {
+    color: #ffc4dd;
+    text-decoration: none;
+}
+
+a:hover {
+    opacity: 0.7;
 }
 </style>
 </head>
@@ -92,6 +130,25 @@ new files appear in folders i never made.
 </div>
 </div>
 
+<div class="secret" onclick="unlockSecret()">
+[corrupted entry]
+</div>
+
+</div>
+
+<!-- whisper text -->
+<div id="whisper" style="
+position: fixed;
+bottom: 15px;
+right: 15px;
+color: #ffb6d5;
+font-size: 11px;
+opacity: 0.8;
+z-index: 9999;
+font-family: Arial, sans-serif;
+text-shadow: 0 0 8px #ff69b4;
+pointer-events:none;
+">
 </div>
 
 <script>
@@ -101,7 +158,9 @@ const whispers = [
     "pinkrot is already inside the cache",
     "kuya was here first",
     "you shouldn’t be reading this",
-    "this page remembers you"
+    "this page remembers you",
+    "he didn’t disappear alone",
+    "don’t follow the fog"
 ];
 
 function changeWhisper() {
@@ -111,9 +170,9 @@ function changeWhisper() {
 
 changeWhisper();
 setInterval(changeWhisper, 4000);
-    
+
 function toggleLog(id) {
-    var log = document.getElementById(id);
+    const log = document.getElementById(id);
 
     if (log.style.display === "block") {
         log.style.display = "none";
@@ -121,17 +180,73 @@ function toggleLog(id) {
         log.style.display = "block";
     }
 }
+
+function unlockSecret() {
+    alert("kuya_kisaragi // last signal received // 03:14 AM");
+}
+
+// page slowly "rots"
+let rotLevel = 0;
+
+document.addEventListener("click", function () {
+    rotLevel++;
+
+    if (rotLevel > 5) {
+        document.body.style.filter =
+            "hue-rotate(10deg) contrast(1.05)";
+    }
+
+    if (rotLevel > 12) {
+        document.body.style.filter =
+            "hue-rotate(30deg) saturate(1.2)";
+    }
+
+    if (rotLevel > 20) {
+        document.body.style.filter =
+            "contrast(1.2) hue-rotate(50deg)";
+    }
+});
+
+// random ghost text
+const ghostLines = [
+    "kuya was here",
+    "don't trust memory",
+    "something followed us back",
+    "you remember wrong",
+    "pinkrot remembers"
+];
+
+function spawnGhostText() {
+    const text = document.createElement("div");
+
+    text.innerText =
+        ghostLines[Math.floor(Math.random() * ghostLines.length)];
+
+    text.style.position = "fixed";
+    text.style.left =
+        Math.random() * window.innerWidth + "px";
+
+    text.style.top =
+        Math.random() * window.innerHeight + "px";
+
+    text.style.color = "rgba(255,182,193,0.4)";
+    text.style.fontSize = "12px";
+    text.style.pointerEvents = "none";
+    text.style.zIndex = "9999";
+
+    document.body.appendChild(text);
+
+    setTimeout(() => {
+        text.remove();
+    }, 2500);
+}
+
+setInterval(() => {
+    if (Math.random() > 0.85) {
+        spawnGhostText();
+    }
+}, 3500);
 </script>
-    <div id="whisper" style="
-position: fixed;
-bottom: 10px;
-right: 10px;
-font-size: 10px;
-opacity: 0.6;
-color: #ffb6d5;
-pointer-events: none;
-">
-    </div>
 
 </body>
 </html>
