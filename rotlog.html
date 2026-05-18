@@ -95,6 +95,23 @@ new files appear in folders i never made.
 </div>
 
 <script>
+const whispers = [
+    "someone is watching the page load",
+    "don’t trust timestamps",
+    "pinkrot is already inside the cache",
+    "kuya was here first",
+    "you shouldn’t be reading this",
+    "this page remembers you"
+];
+
+function changeWhisper() {
+    document.getElementById("whisper").innerText =
+        whispers[Math.floor(Math.random() * whispers.length)];
+}
+
+changeWhisper();
+setInterval(changeWhisper, 4000);
+    
 function toggleLog(id) {
     var log = document.getElementById(id);
 
